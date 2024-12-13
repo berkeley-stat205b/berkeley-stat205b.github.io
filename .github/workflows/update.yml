@@ -42,7 +42,7 @@ jobs:
       run: |
         python .github/scripts/render-templates.py \
           --subject-area=${SIS_SUBJECT_AREA} \
-          --course-number=${SIS_COURSE_NUMBER} \
+          --catalog-number=${SIS_COURSE_NUMBER} \
           --author=${AUTHOR} \
           --google-analytics-tag=${GOOGLE_ANALYTICS_TAG} \
           --course-data-file=${COURSE_DATA_FILE}
