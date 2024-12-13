@@ -35,14 +35,14 @@ jobs:
         SIS_COURSE_API_ID: ${{ secrets.SIS_COURSE_API_ID }}
         SIS_COURSE_API_KEY: ${{ secrets.SIS_COURSE_API_KEY }}
         SIS_SUBJECT_AREA: ${{ vars.SIS_SUBJECT_AREA }}
-        SIS_COURSE_NUMBER: ${{ vars.SIS_COURSE_NUMBER }}
+        SIS_CATALOG_NUMBER: ${{ vars.SIS_CATALOG_NUMBER }}
         AUTHOR: ${{ vars.AUTHOR }}
         GOOGLE_ANALYTICS_TAG: ${{ vars.GOOGLE_ANALYTICS_TAG }}
         COURSE_DATA_FILE: ${{ vars.COURSE_DATA_FILE || '/dev/null' }}
       run: |
         python .github/scripts/render-templates.py \
           --subject-area=${SIS_SUBJECT_AREA} \
-          --catalog-number=${SIS_COURSE_NUMBER} \
+          --catalog-number=${SIS_CATALOG_NUMBER} \
           --author=${AUTHOR} \
           --google-analytics-tag=${GOOGLE_ANALYTICS_TAG} \
           --course-data-file=${COURSE_DATA_FILE}
