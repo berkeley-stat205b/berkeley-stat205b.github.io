@@ -21,10 +21,13 @@ def file_exists(filename):
     return filename
 
 
-async def get_course_data(app_id, app_key, subject_area, course_number):
+async def get_course_data(app_id, app_key, subject_area, catalog_number):
     """Download data from the SIS Course API."""
-    params = {"subject-area-code": subject_area, "course-number": course_number}
+    params = {"subject-area-code": subject_area, "catalog-number": catalog_number}
     data = await course.get_courses(app_id, app_key, **params)
+    if len(data) == 0:
+        raise Exception(f"Could not find SIS data for {params=}.")
+    print(data)
     return data[0]
 
 
@@ -127,9 +130,9 @@ async def main():
     )
     parser.add_argument(
         "-n",
-        "--course-number",
+        "--catalog-number",
         type=str,
-        help="SIS course number.",
+        help="SIS catalog number.",
     )
     parser.add_argument(
         "-C",
@@ -187,7 +190,7 @@ async def main():
         os.environ.get("SIS_COURSE_API_ID"),
         os.environ.get("SIS_COURSE_API_KEY"),
         args.subject_area,
-        args.course_number,
+        args.catalog_number,
     )
 
     # Read data from local file if it exists
