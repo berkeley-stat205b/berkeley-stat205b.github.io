@@ -15,13 +15,6 @@ UC Berkeley
 
 
 
-## Offerings
-
-1. [Spring 2025](/spring-2025)
-
-
-
-
 ## Overview
 
 Measure theory concepts needed for probability. Expectation, distributions. Laws of large numbers and central limit theorems for independent random variables. Characteristic function methods. Conditional expectations; martingales and theory convergence. Markov chains. Stationary processes. 
